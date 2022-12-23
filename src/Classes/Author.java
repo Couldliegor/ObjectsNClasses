@@ -15,13 +15,17 @@ public class Author {
         return this.surname;
     }
 
+    @Override
     public String toString(){
-        return "Name " + getName() + " " + getSurname();
+        return "Name " + this.getName() + " " + this.getSurname();
     }
     public boolean equals(Object obj) {
+        if (obj == null || obj.getClass() != Author.class) {
+            return false;
+        }
         return (this == obj);
     }
     public int hashCode() {
-        return java.util.Objects.hash(this.getClass());
+        return java.util.Objects.hash(this.getName() + " " +  this.getSurname());
     }
 }

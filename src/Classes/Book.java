@@ -22,14 +22,18 @@ public class Book {
     public void setYear(int year) {
         this.year = year;
     }
+
     public String toString() {
-        return "Author's " + author.getName() + " " + author.getSurname() + " , year " + getYear() + " , Book named " + getBookNick();
+        return "Author's " + author.toString() + " , year " + getYear() + " , Book named " + getBookNick();
     }
 
     public boolean equals(Object obj) {
+        if (obj == null || obj.getClass() != Book.class) {
+            return false;
+        }
         return (this == obj);
     }
     public int hashCode() {
-        return java.util.Objects.hash(this.getClass());
+        return java.util.Objects.hash(this.getAuthor() + " " + this.getBookNick() + " " + this.getYear());
     }
 }

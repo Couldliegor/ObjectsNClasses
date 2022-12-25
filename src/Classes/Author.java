@@ -20,12 +20,12 @@ public class Author {
         return "Name " + this.getName() + " " + this.getSurname();
     }
     public boolean equals(Object obj) {
-        if (obj == null || obj.getClass() != Author.class) {
+        if (this.getClass() != obj.getClass()) {
             return false;
         }
         return (this == obj);
     }
     public int hashCode() {
-        return java.util.Objects.hash(this.getName() + " " +  this.getSurname());
+        return java.util.Objects.hash(this.getName(), this.getSurname());
     }
 }

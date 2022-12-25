@@ -28,12 +28,12 @@ public class Book {
     }
 
     public boolean equals(Object obj) {
-        if (obj == null || obj.getClass() != Book.class) {
+        if (this.getClass() != obj.getClass()) {
             return false;
         }
         return (this == obj);
     }
     public int hashCode() {
-        return java.util.Objects.hash(this.getAuthor() + " " + this.getBookNick() + " " + this.getYear());
+        return java.util.Objects.hash(this.getAuthor(),  this.getBookNick(), this.getYear());
     }
 }
